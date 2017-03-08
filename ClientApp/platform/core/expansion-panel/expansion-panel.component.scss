@@ -1,0 +1,41 @@
+:host /deep/ {
+  md-nav-list {
+    [md-list-item] {
+      &:active,
+      &:focus {
+        outline: none;
+      }
+      &.mat-list-item.mat-interaction-disabled .mat-list-item-content {
+        background: none !important;
+        cursor: auto;
+      }
+      &.mat-tall .mat-list-item-content {
+        height: auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+:host {
+  display: block;
+  
+  .panel {
+    transition: 1s all ease;
+  }
+
+  md-nav-list:first-of-type,
+  md-list:first-of-type {
+    padding-top: 0;
+  }
+}
+md-nav-list {
+  padding: 0;
+}
+.td-expansion-primary,
+.td-expansion-secondary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 5px;
+}

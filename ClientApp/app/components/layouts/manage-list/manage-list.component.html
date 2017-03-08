@@ -1,0 +1,199 @@
+<td-layout-nav logo="assets:teradata" toolbarTitle="Covalent">
+  <td-layout-manage-list #manageList 
+                        [opened]="media.registerQuery('gt-sm') | async"
+                        [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
+                        [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
+    <md-toolbar td-sidenav-content>
+      <span>Optional Title</span>
+    </md-toolbar>
+    <md-nav-list td-sidenav-content (click)="!media.query('gt-sm') && manageList.close()">
+      <a md-list-item><md-icon>folder</md-icon>Item Name</a>
+      <a md-list-item><md-icon>people</md-icon>Item Name</a>
+    </md-nav-list>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span>Optional Title</span>
+      <span flex></span>
+      <button md-icon-button><md-icon class="md-24">settings</md-icon></button>
+      <button md-icon-button><md-icon class="md-24">more_vert</md-icon></button>
+    </div>
+    <md-card>
+      <md-card-title> Manage List Layout</md-card-title>
+      <md-card-subtitle>Content/object management views (this page is using manage list)</md-card-subtitle>
+      <md-divider></md-divider>
+      <md-card-content>
+        <md-nav-list>
+          <h3 md-subheader>Recommended usage:</h3>
+          <a md-list-item href="https://teradata.github.io/covalent-quickstart/#/product" target="_blank">
+            <p md-line>Product landing page with subnavigation</p>
+            <md-icon>launch</md-icon>
+          </a>
+          <md-divider></md-divider>
+          <a md-list-item href="https://teradata.github.io/covalent-quickstart/#/users" target="_blank">
+            <p md-line>Manage list view (users, systems, settings, etc.)</p>
+            <md-icon>launch</md-icon>
+          </a>
+          <md-divider></md-divider>
+        </md-nav-list>
+        <div layout-gt-md="row">
+          <div flex-gt-md="50">
+            <td-steps>
+              <td-step label="td-layout-nav" sublabel="the main content wrapper">
+                <md-list>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<td-layout-nav>]]></code></h3>
+                    <p md-line>Builds the top toolbar</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code>toolbarTitle?: string</code></h3>
+                    <p md-line>The title of your toolbar</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code>logo?: string</code></h3>
+                    <p md-line>The path to your toolbar logo</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-list>
+              </td-step>
+              <td-step label="td-layout-manage-list" sublabel="the inner content area">
+                <md-list>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<td-layout-manage-list>]]></code></h3>
+                    <p md-line>Builds the left nav and content area</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<md-toolbar td-sidenav-content>]]></code></h3>
+                    <h3 md-line><code><![CDATA[<span>Optional Title</span>]]></code></h3>
+                    <p md-line>Optional list toolbar w/ title</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<md-nav-list td-sidenav-content>]]></code></h3>
+                    <p md-line>The list items wrapper</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<router-outlet>]]></code></h3>
+                    <p md-line>Loads html for each route (view)</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-list>
+              </td-step>
+              <td-step label="div[td-toolbar-content]" sublabel="the management toolbar above content">
+                <md-list>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<div td-toolbar-content>]]></code></h3>
+                    <p md-line>The toolbar wrapper</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<span>Optional Subtitle</span>]]></code></h3>
+                    <p md-line>Optional subtitle</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<span flex>]]></code></h3>
+                    <p md-line>Used as a spacer between buttons</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code class="text-sm"><![CDATA[<button md-icon-button>]]></code></h3>
+                    <p md-line>Toolbar icon buttons</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-list>
+              </td-step>
+              <td-step label="td-layout-footer" sublabel="optional sticky footer">
+                <md-list>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<td-layout-footer>]]></code></h3>
+                    <p md-line>Optional footer before <code><![CDATA[</td-layout-nav>]]></code></p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code><![CDATA[<td-layout-footer-inner>]]></code></h3>
+                    <p md-line>Optional inner footer before <code><![CDATA[</td-layout-manage-list>]]></code></p>
+                  </md-list-item>
+                </md-list>
+              </td-step>
+              <td-step label="responsive layout" sublabel="(Extra) leverage of media service and inputs">
+                <md-list>
+                  <md-list-item>
+                    <h3 md-line><code>[opened]</code>, <code>[mode]</code>, <code>[sidenavWidth]</code></h3>
+                    <p md-line>Set media breakpoints to change the value of the inputs</p>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <h3 md-line><code>(click)</code> media prevention</h3>
+                    <p md-line>Close sidenav only on certain media breakpoints</p>
+                  </md-list-item>
+                </md-list>
+              </td-step>
+            </td-steps>
+          </div>
+          <div flex-gt-md="50">
+            <h3 class="md-title">HTML</h3>
+            <td-highlight lang="html">
+              <![CDATA[
+                <td-layout-nav toolbarTitle="Toolbar Title" logo="svgIconName">
+                  <td-layout-manage-list #manageList 
+                          [opened]="media.registerQuery('gt-sm') | async"
+                          [mode]="(media.registerQuery('gt-sm') | async) ? 'side' :  'over'"
+                          [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '257px' : '100%'">
+                    <md-toolbar td-sidenav-content>
+                      <span>Optional Title</span>
+                    </md-toolbar>
+                    <md-nav-list td-sidenav-content
+                                 (click)="!media.query('gt-sm') && manageList.close()">
+                      <a md-list-item><md-icon>folder</md-icon>Item Name</a>
+                      <a md-list-item><md-icon>people</md-icon>Item Name</a>
+                    </md-nav-list>
+                    <div td-toolbar-content layout="row" layout-align="start center" flex>
+                      <span>Optional Subtitle</span>
+                      <span flex></span>
+                      <button md-icon-button><md-icon class="md-24">settings</md-icon></button>
+                      <button md-icon-button><md-icon class="md-24">more_vert</md-icon></button>
+                    </div>
+                    <router-outlet></router-outlet>
+                    <td-layout-footer-inner>
+                      Optional inner footer
+                    </td-layout-footer-inner>
+                  </td-layout-manage-list>
+                  <td-layout-footer>
+                    Optional footer
+                  </td-layout-footer>
+                </td-layout-nav>
+              ]]>
+            </td-highlight>
+            <h3 class="md-title">Typescript</h3>
+            <td-highlight lang="typescript">
+              <![CDATA[
+                import { TdMediaService } from '@covalent/core';
+                ...
+                export class MyComponent {
+
+                  constructor(public media: TdMediaService) {}
+
+                  ngAfterViewInit(): void {
+                    // broadcast to all listener observables when loading the page
+                    this.media.broadcast();
+                  }
+                }
+              ]]>
+            </td-highlight>
+          </div>
+        </div>
+      </md-card-content>
+      <md-divider></md-divider>
+      <md-card-actions layout="row">
+          <a md-button [routerLink]="'/layouts'" class="text-upper">Go Back</a>
+      </md-card-actions>
+    </md-card>
+    <td-readme-loader resourceUrl="platform/core/layout/layout-manage-list/README.md"></td-readme-loader>
+  </td-layout-manage-list>
+  <td-layout-footer>
+      Optional footer
+  </td-layout-footer>
+</td-layout-nav>

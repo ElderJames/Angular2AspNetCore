@@ -1,0 +1,144 @@
+<md-card>
+  <md-card-title>Custom Theme</md-card-title>
+  <md-card-subtitle>SCSS variables to customize the color scheme</md-card-subtitle>
+  <md-divider></md-divider>
+  <md-card-content>
+    <h3>SCSS Variables</h3>
+    <p>Simply edit the /theme.scss file and update these SCSS variables:</p>
+    <td-highlight lang="scss">
+      @import '~@angular/material/core/theming/all-theme';
+      @import '~@covalent/core/theming/all-theme';
+      @import '~@covalent/markdown/markdown-theme';
+      @import '~@covalent/charts/charts-theme';
+      @import '~@covalent/highlight/highlight-theme';
+      // Plus imports for other components in your app.
+
+      // Include the base styles for Angular Material core. We include this here so that you only
+      // have to load a single css file for Angular Material in your app.
+      @include mat-core();
+
+      // Define the palettes for your theme using the Material Design palettes available in palette.scss
+      // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+      // hue.
+      $primary: mat-palette($mat-blue, 700);
+      $accent:  mat-palette($mat-orange, 800, A100, A400);
+
+      // The warn palette is optional (defaults to red).
+      $warn:    mat-palette($mat-red, 600);
+
+      // Create the theme object (a Sass map containing all of the palettes).
+      $theme: mat-light-theme($primary, $accent, $warn);
+
+      // Include theme styles for core and each component used in your app.
+      // Alternatively, you can import and @include the theme mixins for each component
+      // that you are using.
+      @include angular-material-theme($theme);
+      @include covalent-theme($theme);
+      @include covalent-markdown-theme($theme);
+      @include covalent-charts-theme($theme);
+      @include covalent-highlight-theme();
+    </td-highlight>
+    <p>
+      Color palettes and hues follow the official <a href="https://material.google.com/style/color.html" target="_blank">Material Design Spec</a>.
+    </p>
+  </md-card-content>
+  <md-divider></md-divider>
+  <md-card-actions>
+    <a md-button color="accent" target="_blank" href="https://material.angular.io/guide/theming" class="text-upper">Theming Docs</a>
+    <a md-button [routerLink]="['../../style-guide','colors']" class="text-upper">Color Guide</a>
+  </md-card-actions>
+</md-card>
+<md-card>
+  <md-card-title>Multiple color themes</md-card-title>
+  <md-card-subtitle>Choose a primary, accent and warn color from the official Material color palette.</md-card-subtitle>
+  <md-divider></md-divider>
+  <md-card-content>
+    Add the custom CSS class with custom SCSS variables to your /theme.scss file
+  </md-card-content>
+  <md-divider></md-divider>
+  <md-card-content>
+    <h3 class="md-title"><span class="tc-blue-700">Blue Primary</span> / <span class="tc-orange-700">Orange Accent</span></h3>
+    <div layout-gt-xs="row" layout-margin>
+      <div flex-gt-xs="50" class="pad-top-sm">
+        <td-highlight lang="scss">
+          .blue-orange {{ '{' }}
+              $primary2: mat-palette($mat-blue, 700);
+              $accent2:  mat-palette($mat-orange, 800);
+              $warn2:    mat-palette($mat-red, 600);
+
+              $blue-orange: mat-light-theme($primary2, $accent2, $warn2);
+
+              @include angular-material-theme($blue-orange);
+              @include covalent-theme($blue-orange);
+          {{ '}' }}
+        </td-highlight>
+      </div>
+      <div flex-gt-xs="50">
+        <md-card class="top-toolbar blue-orange">
+          <md-toolbar color="primary">
+            <md-toolbar-row>
+              <span></span>
+            </md-toolbar-row>
+            <md-toolbar-row>
+              <span>Toolbar</span>
+            </md-toolbar-row>
+          </md-toolbar>
+          <md-card-content>
+            <button md-fab class="md-fab md-fab-position-bottom-right">
+              <md-icon>add</md-icon>
+            </button>
+            <h3>View title</h3>
+            <p>
+              When using a primary color in your palette, this color should be the most widely used across all screens and components.
+            </p>
+            <p>
+              Palettes with a secondary color may use this color to indicate a related action or information.
+            </p>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+    <md-divider></md-divider>
+    <h3 class="md-title"><span class="tc-blue-grey-700">Blue Grey Primary</span> / <span class="tc-deep-orange-700">Deep Orange Accent</span></h3>
+    <div layout-gt-xs="row" layout-margin>
+      <div flex-gt-xs="50" class="pad-top-sm">
+        <td-highlight lang="scss">
+          .blue-grey-deep-orange {{ '{' }}
+              $primary3: mat-palette($mat-blue-grey);
+              $accent3:  mat-palette($mat-deep-orange);
+              $warn3:    mat-palette($mat-red, 600);
+
+              $blue-grey-deep-orange: mat-light-theme($primary3, $accent3, $warn3);
+
+              @include angular-material-theme($blue-grey-deep-orange);
+              @include covalent-theme($blue-grey-deep-orange); 
+          {{ '}' }}
+        </td-highlight>
+      </div>
+      <div flex-gt-xs="50">
+        <md-card class="top-toolbar blue-grey-deep-orange">
+          <md-toolbar color="primary">
+            <md-toolbar-row>
+              <span></span>
+            </md-toolbar-row>
+            <md-toolbar-row>
+              <span>Toolbar</span>
+            </md-toolbar-row>
+          </md-toolbar>
+          <md-card-content>
+            <button md-fab class="md-fab md-fab-position-bottom-right">
+              <md-icon>add</md-icon>
+            </button>
+            <h3>View title</h3>
+            <p>
+              When using a primary color in your palette, this color should be the most widely used across all screens and components.
+            </p>
+            <p>
+              Palettes with a secondary color may use this color to indicate a related action or information.
+            </p>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

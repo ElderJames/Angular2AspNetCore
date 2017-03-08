@@ -1,0 +1,41 @@
+@import 'variables';
+
+body {
+    .mat-card {
+        padding: 0;
+        margin: 8px;
+        md-card-header {
+            height: auto;
+        }
+        [md-card-avatar] {
+            font-size: $md-card-header-size;
+            line-height: $md-card-header-size;
+            height: $md-card-header-size;
+            width: $md-card-header-size;
+            margin: 16px 0 0 15px;
+            border-radius: 50%;
+        }
+        [md-card-image] {
+            width: 100%;
+            margin: 0;
+        }
+        md-card-title {
+            padding-top: $padding;
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+        md-card-subtitle {
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+        md-card-content {
+            padding: $padding;
+        }
+        &, & .mat-card {
+            & .mat-card-actions:last-child {
+                padding: $padding / 2;
+                margin: 0;
+            }
+        }
+    }
+}

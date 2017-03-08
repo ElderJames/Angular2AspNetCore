@@ -1,0 +1,28 @@
+@import '~@angular/material/core/theming/theming';
+@import '~@angular/material/core/style/elevation';
+
+@mixin td-layout-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .mat-sidenav-container {
+    background-color: md-color($background, status-bar);
+  }
+
+  td-layout-nav,
+  td-layout-nav-list,
+  td-layout-manage-list,
+  td-layout-card-over,
+  td-navigation-drawer,
+  td-layout {
+    md-toolbar {
+      @include mat-elevation(1);
+      z-index: 1;
+    }
+  }
+  .td-layout-footer {
+    background: mat-color($background, app-bar);
+    color: mat-color($foreground, text);
+    @include mat-elevation(2);
+  }
+}
